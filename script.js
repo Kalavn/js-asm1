@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 let petList = [];
 let pet = {};
 
 //get id html of table
-let tableListHTML = document.getElementById('pet-list');
+let tableListHTML = document.getElementById("pet-list");
 
 //html of icon check or not check
 const checkBoxHTML = function (checkStatus) {
   //checkStatus is boolean true or fase
-  let textHTML = '';
+  let textHTML = "";
   if (checkStatus) {
     textHTML = `<td><i class="bi bi-check-circle-fill"></i></td>`;
   } else {
@@ -17,12 +17,12 @@ const checkBoxHTML = function (checkStatus) {
   return textHTML;
 };
 
-const bmiElBtn = document.getElementById('bmi-btn');
+const bmiElBtn = document.getElementById("bmi-btn");
 const displayPetList = function (array) {
   if (array.length < 1) {
-    tableListHTML.innerHTML = '';
+    tableListHTML.innerHTML = "";
   } else {
-    let tableInnerHTML = '';
+    let tableInnerHTML = "";
     tableInnerHTML = `<thead>
     <tr>
       <th scope="col">ID</th>
@@ -69,9 +69,9 @@ const displayPetList = function (array) {
     tableInnerHTML += `</tbody>`;
     tableListHTML.innerHTML = tableInnerHTML;
     //display BMI
-    const bmiIdEl = document.querySelectorAll('.bmi');
+    const bmiIdEl = document.querySelectorAll(".bmi");
     let bmiClicked = false;
-    bmiElBtn.addEventListener('click', function () {
+    bmiElBtn.addEventListener("click", function () {
       bmiClicked = true;
       for (let i = 0; i < bmiIdEl.length; i++) {
         if (bmiClicked) {
@@ -81,9 +81,9 @@ const displayPetList = function (array) {
       bmiClicked = false;
     });
     //delete click event
-    const deleteEl = document.querySelectorAll('.btn-danger');
+    const deleteEl = document.querySelectorAll(".btn-danger");
     for (let i = 0; i < deleteEl.length; i++) {
-      deleteEl[i].addEventListener('click', function () {
+      deleteEl[i].addEventListener("click", function () {
         //console.log(1);
         //someArray = someArray.filter(person => person.name != 'John');
         let delId = Number(deleteEl[i].id.slice(2));
@@ -103,7 +103,7 @@ const displayPetList = function (array) {
         //petList = petList.filter(pet => pet.petId != delId);
         //remove thead table
         if (array.length < 1) {
-          tableListHTML.innerHTML = '';
+          tableListHTML.innerHTML = "";
         }
       });
     }
@@ -111,42 +111,42 @@ const displayPetList = function (array) {
 };
 
 //check healthy pets or all pets
-let healthyEl = document.getElementById('healthy-btn');
+let healthyEl = document.getElementById("healthy-btn");
 let showHealthyPet = true;
-healthyEl.addEventListener('click', function () {
+healthyEl.addEventListener("click", function () {
   if (showHealthyPet) {
     showHealthyPet = false;
-    healthyEl.textContent = 'Show all Pets';
-    let healthyPetList = petList.filter(pet => pet.petHealthy());
+    healthyEl.textContent = "Show all Pets";
+    let healthyPetList = petList.filter((pet) => pet.petHealthy());
     displayPetList(healthyPetList);
   } else {
     showHealthyPet = true;
-    healthyEl.textContent = 'Show healthy pet';
+    healthyEl.textContent = "Show healthy pet";
     displayPetList(petList);
   }
 });
 
 //submit pet to array
-let petIdEl = 0;
-const submitEl = document.getElementById('submit-btn');
-submitEl.addEventListener('click', function () {
+//let petIdEl = 0;
+const submitEl = document.getElementById("submit-btn");
+submitEl.addEventListener("click", function () {
   //console.log(1);
   //for (let i = 0; i < 3; i++) {
   //Get data form
-  //const petIdEl = document.getElementById('input-id').value;
-  petIdEl++;
-  const petNameEl = document.getElementById('input-name').value;
-  const petAgeEl = document.getElementById('input-age').value;
-  let petTypeEl = document.getElementById('input-type').value;
-  petTypeEl = 'Dog';
-  const petWeightEl = document.getElementById('input-weight').value;
-  const petLengthEl = document.getElementById('input-length').value;
-  const petColorEl = document.getElementById('input-color-1').value;
-  let petBreedEl = document.getElementById('input-breed').value;
-  petBreedEl = 'Tapple';
-  const petVaccinatedEl = document.getElementById('input-vaccinated').checked;
-  const petDewormedEl = document.getElementById('input-dewormed').checked;
-  const petSterilizedEl = document.getElementById('input-sterilized').checked;
+  const petIdEl = document.getElementById("input-id").value;
+  //petIdEl++;
+  const petNameEl = document.getElementById("input-name").value;
+  const petAgeEl = document.getElementById("input-age").value;
+  let petTypeEl = document.getElementById("input-type").value;
+  //petTypeEl = "Dog";
+  const petWeightEl = document.getElementById("input-weight").value;
+  const petLengthEl = document.getElementById("input-length").value;
+  const petColorEl = document.getElementById("input-color-1").value;
+  let petBreedEl = document.getElementById("input-breed").value;
+  //petBreedEl = "Tapple";
+  const petVaccinatedEl = document.getElementById("input-vaccinated").checked;
+  const petDewormedEl = document.getElementById("input-dewormed").checked;
+  const petSterilizedEl = document.getElementById("input-sterilized").checked;
 
   //create pet object
   pet = {
@@ -182,60 +182,60 @@ submitEl.addEventListener('click', function () {
     let inputBreed = false;
 
     //print span error
-    let ageError = document.getElementById('age-error');
-    let weightError = document.getElementById('weight-error');
-    let lengthError = document.getElementById('length-error');
-    let typeError = document.getElementById('type-error');
-    let breedError = document.getElementById('breed-error');
-    let idError = document.getElementById('id-error');
+    let ageError = document.getElementById("age-error");
+    let weightError = document.getElementById("weight-error");
+    let lengthError = document.getElementById("length-error");
+    let typeError = document.getElementById("type-error");
+    let breedError = document.getElementById("breed-error");
+    let idError = document.getElementById("id-error");
 
     //reset span error
-    ageError.innerHTML = '';
-    weightError.innerHTML = '';
-    lengthError.innerHTML = '';
-    typeError.innerHTML = '';
-    breedError.innerHTML = '';
-    idError.innerHTML = '';
+    ageError.innerHTML = "";
+    weightError.innerHTML = "";
+    lengthError.innerHTML = "";
+    typeError.innerHTML = "";
+    breedError.innerHTML = "";
+    idError.innerHTML = "";
 
     //check Age input 1 - 15
     if (petAgeEl >= 1 && petAgeEl <= 15) {
       inputAge = true;
     } else {
-      ageError.innerHTML = 'Age must be between 1 and 15!';
+      ageError.innerHTML = "Age must be between 1 and 15!";
     }
     //check Weight input 1-15
     if (petWeightEl >= 1 && petWeightEl <= 15) {
       inputWeight = true;
     } else {
-      weightError.innerHTML = 'Weight must be between 1 and 15!';
+      weightError.innerHTML = "Weight must be between 1 and 15!";
     }
     //check Length input 1-100
     if (petLengthEl >= 1 && petLengthEl <= 100) {
       inputLength = true;
     } else {
-      lengthError.innerHTML = 'Length must be between 1 and 100!';
+      lengthError.innerHTML = "Length must be between 1 and 100!";
     }
     //check type input or print "Please select Type!"
-    if (petTypeEl !== 'Select Type') {
+    if (petTypeEl !== "Select Type") {
       inputType = true;
     } else {
-      typeError.innerHTML = 'Please select Type!';
+      typeError.innerHTML = "Please select Type!";
     }
     //check breed input or print "Please select Breed!"
-    if (petBreedEl !== 'Select Breed') {
+    if (petBreedEl !== "Select Breed") {
       inputBreed = true;
     } else {
-      breedError.innerHTML = 'Please select Breed!';
+      breedError.innerHTML = "Please select Breed!";
     }
     //check pet id input
-    inputId = petList.find(pet => pet.petId === petIdEl);
+    inputId = petList.find((pet) => pet.petId === petIdEl);
 
-    if (petIdEl === '') {
-      idError.innerHTML = 'ID must be fill!';
+    if (petIdEl === "") {
+      idError.innerHTML = "ID must be fill!";
       inputId = false;
     } else if (inputId) {
       inputId = false;
-      idError.innerHTML = 'ID must be unique!';
+      idError.innerHTML = "ID must be unique!";
     } else {
       inputId = true;
     }
