@@ -2,9 +2,6 @@
 let petList = [];
 let pet = {};
 
-//get id html of table
-let tableListHTML = document.getElementById("pet-list");
-
 //html of icon check or not check
 const checkBoxHTML = function (checkStatus) {
   //checkStatus is boolean true or fase
@@ -18,6 +15,9 @@ const checkBoxHTML = function (checkStatus) {
 };
 
 const bmiElBtn = document.getElementById("bmi-btn");
+
+//get id html of table
+let tableListHTML = document.getElementById("pet-list");
 const displayPetList = function (array) {
   if (array.length < 1) {
     tableListHTML.innerHTML = "";
@@ -173,6 +173,19 @@ submitEl.addEventListener("click", function () {
       return bmi.toFixed(2);
     },
   };
+  const clearForm = function () {
+    petIdEl = "";
+    petNameEl = "";
+    petAgeEl = "";
+    petTypeEl = "Select Type";
+    petWeightEl = "";
+    petLengthEl = "";
+    petColorEl = #000;
+    petBreedEl = "Select Type";
+    petVaccinatedEl = false;
+    petDewormedEl = false;
+    petSterilizedEl = false;
+  };
   const inputValidated = function () {
     let inputId = false;
     let inputAge = false;
@@ -257,6 +270,7 @@ submitEl.addEventListener("click", function () {
 
   if (inputValidated()) {
     petList.push(pet);
+    clearForm();
     displayPetList(petList);
   }
   //}
